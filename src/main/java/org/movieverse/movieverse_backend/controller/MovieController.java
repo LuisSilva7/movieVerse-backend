@@ -24,6 +24,11 @@ public class MovieController {
 
     private final IMovieService movieService;
 
+    @GetMapping("/")
+    public String home() {
+        return "hello world!";
+    }
+
     @GetMapping("/all")
     public ResponseEntity<ApiResponse> getAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
