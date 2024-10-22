@@ -1,4 +1,4 @@
-package org.movieverse.movieverse_backend.service;
+package org.movieverse.movieverse_backend.service.movie;
 
 import lombok.RequiredArgsConstructor;
 import org.movieverse.movieverse_backend.dto.MovieDto;

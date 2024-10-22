@@ -5,7 +5,7 @@ import org.movieverse.movieverse_backend.dto.MovieDto;
 import org.movieverse.movieverse_backend.exceptions.ResourceNotFoundException;
 import org.movieverse.movieverse_backend.model.Movie;
 import org.movieverse.movieverse_backend.response.ApiResponse;
-import org.movieverse.movieverse_backend.service.IMovieService;
+import org.movieverse.movieverse_backend.service.movie.IMovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

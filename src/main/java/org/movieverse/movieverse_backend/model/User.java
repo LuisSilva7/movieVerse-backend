@@ -1,8 +1,7 @@
 package org.movieverse.movieverse_backend.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -12,7 +11,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long authId;
+    private String name;
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
