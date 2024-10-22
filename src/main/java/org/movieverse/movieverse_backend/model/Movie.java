@@ -1,13 +1,16 @@
 package org.movieverse.movieverse_backend.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Movie {
 
@@ -24,7 +27,6 @@ public class Movie {
     private double rating; // Ex: 7.8
     private String stripeId;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
+    @ManyToMany(mappedBy="movies")
+    private List<Cart> carts;
 }

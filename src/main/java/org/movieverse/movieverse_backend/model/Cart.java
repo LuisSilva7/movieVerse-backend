@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -18,14 +17,19 @@ public class Cart {
     private Long id;
     private BigDecimal totalAmount = BigDecimal.ZERO;
 
-    @OneToMany(mappedBy = "cart")
+    @ManyToMany
+    @JoinTable(name="cart_movie",
+            joinColumns=
+            @JoinColumn(name="cart_id", referencedColumnName="id"),
+            inverseJoinColumns=
+            @JoinColumn(name="movie_id", referencedColumnName="id")
+    )
     private List<Movie> movies;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
+    @OneToOne(mappedBy = "cart")
     private User user;
 
-    public void addMovie(Movie movie) {
+    /*public void addMovie(Movie movie) {
         this.movies.add(movie);
         movie.setCart(this);
         updateTotalAmount();
@@ -46,5 +50,5 @@ public class Cart {
     public void clearCart(){
         this.movies.clear();
         updateTotalAmount();
-    }
+    }*/
 }

@@ -15,6 +15,7 @@ public class User {
     private Long authId;
     private String email;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 }
